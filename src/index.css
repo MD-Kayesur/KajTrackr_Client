@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.navbar a.active {
+    color: black; /* Blue color for active link */
+    font-weight: bold;
+  }

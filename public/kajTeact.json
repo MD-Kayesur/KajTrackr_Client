@@ -1,0 +1,48 @@
+[
+    {
+      "id": 1,
+      "name": "Car Model A",
+      "date": "2025-04-10",
+      "factory": "Toyota",
+      "price": 2500000,
+      "pay": 1500000,
+      "bokaya": 1000000
+    },
+    {
+      "id": 2,
+      "name": "Car Model B",
+      "date": "2025-04-08",
+      "factory": "Honda",
+      "price": 2200000,
+      "pay": 2200000,
+      "bokaya": 0
+    },
+    {
+      "id": 3,
+      "name": "Car Model C",
+      "date": "2025-03-15",
+      "factory": "BMW",
+      "price": 5500000,
+      "pay": 3000000,
+      "bokaya": 2500000
+    },
+    {
+      "id": 4,
+      "name": "Car Model D",
+      "date": "2025-02-20",
+      "factory": "Nissan",
+      "price": 1800000,
+      "pay": 1000000,
+      "bokaya": 800000
+    },
+    {
+      "id": 5,
+      "name": "Car Model E",
+      "date": "2025-01-30",
+      "factory": "Tesla",
+      "price": 7500000,
+      "pay": 4000000,
+      "bokaya": 3500000
+    }
+  ]
+  
