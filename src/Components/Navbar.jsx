@@ -4,6 +4,7 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 // import useMyWorks from "../Hooks/useMyWorks";
 import NotificationBell from "./NotificationBell ";
+import { ThemeContext } from "./ThemeContext ";
 //  import { useContext } from "react";
 // import { AuthContext } from "../Providers/AuthProviders";
 // import Swal from "sweetalert2";
@@ -162,6 +163,8 @@ const Navbar = () => {
           </div>
         )}
       </div>
+      
+      
     </div>
   );
 };

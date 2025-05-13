@@ -18,17 +18,21 @@ const Contavtor = () => {
 
     const factory = form.factory.value.trim();
     const date = form.date.value;
+    const DAy = form.DAy.value;
+    const DetailsWorker = form.DetailsWorker.value;
 
     const newErrors = {};
     if (!factory) newErrors.factory = "ফ্যাক্টরির নাম লিখুন";
     if (!date) newErrors.date = "তারিখ দিন";
+    if (!DAy) newErrors.DAy = "DAy দিন";
+    if (!DetailsWorker) newErrors.DetailsWorker = "DetailsWorker দিন";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
 
-    const addinfo = { date, factory, userEmaol };
+    const addinfo = { date, factory, userEmaol,DetailsWorker,DAy };
     addWorks(addinfo);
     addHistory(addinfo);
 
@@ -51,6 +55,20 @@ const Contavtor = () => {
           <div className="card-body">
             <form onSubmit={Submit}>
               <fieldset className="fieldset space-y-2">
+
+
+
+              <div>
+              <label className="fieldset-label">তারিখ</label>
+                <input
+                  type="date"
+                  name="date"
+                  className="input"
+                />
+                {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
+              </div>
+
+                <div>
                 <label className="fieldset-label">ফ্যাক্টরির নাম</label>
                 <input
                   type="text"
@@ -59,14 +77,42 @@ const Contavtor = () => {
                   placeholder="Factory Name"
                 />
                 {errors.factory && <p className="text-red-500 text-sm">{errors.factory}</p>}
+                </div>
 
-                <label className="fieldset-label">তারিখ</label>
-                <input
-                  type="date"
-                  name="date"
-                  className="input"
-                />
-                {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
+            
+
+
+                <div>
+  <label className="fieldset-label pb-3">Select a day</label>
+
+  <select name="DAy" className="input w-full">
+    <option value="">Select a day</option>
+    <option value="Sunday">Sunday</option>
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+  </select>
+  {errors.DAy && <p className="text-red-500 text-sm">{errors.DAy}</p>}
+</div>
+
+
+
+
+
+<div>
+        <label className="fieldset-label">Details of Worker</label>
+        <textarea
+          className="textarea"
+          name="DetailsWorker"
+          placeholder="Details of Worker"
+        ></textarea>
+        {errors.DetailsWorker && <p className="text-red-500 text-sm">{errors.DetailsWorker}</p>}
+      </div>
+
+
 
                 <button className="btn btn-neutral mt-4" type="submit">Add Work</button>
               </fieldset>

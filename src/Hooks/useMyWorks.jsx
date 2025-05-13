@@ -53,7 +53,7 @@ const useMyWorks = () => {
   };
   // announsment
   const addAnnounment = async (AnnounseInfo) => {
-    //console.log(AnnounseInfo);
+    console.log(AnnounseInfo);
     const res = await AxiousURL.post("/announsment", AnnounseInfo);
     return res.data;
   };
@@ -94,9 +94,9 @@ const addusers = async (userInfo) => {
 
   const { data: onlyuser = [] } = useQuery({
  
-    queryKey: ["onlyuser"],
+    queryKey: ["onlyuser" , userEmail],
     queryFn: async () => {
-      const res = await AxiousURL.get(`/useronly/${userEmail}`);
+      const res = await AxiousURL.get(`/useronly/${userEmail.toLowerCase()}`);
       return res.data;
     },
   });
