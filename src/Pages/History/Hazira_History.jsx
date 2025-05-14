@@ -38,32 +38,44 @@ const handleDelete=()=>{
   return (
     <div>
       <div className="overflow-x-auto">
-        <table className="table ">
+      <table className="table">
           {/* head */}
-          <thead className="border">
-            <tr className="border">
-              <th> </th>
-              <th>Contactor Name</th>
+          <thead>
+            <tr>
+              <th></th>
               <th>Factory Name</th>
+              <th>Contactor Name</th>
               <th>Date</th>
-              <th>My Ret</th>
+              <th>DAy</th>
+              <th>my Rent</th>
+              <th>Already Pay</th>
+              <th> will get</th>
+              <th> Over Time</th>
+              <th> take money</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
 
-            {AllHistory?.map((history, index) => (
-              <tr className="hover:bg-base-200 border">
-                <th>{index + 1}</th>
-                <td>{history?.name}</td>
-                <td>{history?.factory}</td>
-                <td>{history?.date}</td>
-                <td>$ {history?.price}</td>
-                <td> {history?.overtime}</td>
-              </tr>
-            ))}
+            {AllHistory?.map((mywork, index) => {
+              const Bokaya = mywork?.price - mywork?.pay;
 
-            {/* <td onClick={()=>deleteHistory(AllHistory)} className="btn bg-red-300">Delete History</td>  */}
+              return (
+                <tr key={mywork?._id} className="hover:bg-base-200">
+                  <th>{index + 1}</th>
+                  <td>{mywork?.factory}</td>
+                  <td>{mywork?.name}</td>
+                  <td>{mywork?.date}</td>
+                  <td>{mywork?.DAy}</td>
+                  <td>{mywork?.price}</td>
+                  <td>{mywork?.pay}</td>
+                  <td>{Bokaya}</td> {/* এইখানে ভেরিয়েবল ইউজ করা হলো */}
+                  <td>{mywork?.overtime}</td>
+                  <td>{mywork?.takemoney}</td>
+                   
+                </tr>
+              );
+            })}
           </tbody>
         </table>
         {    days===28||days===29||days===30||days===31? (

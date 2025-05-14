@@ -70,13 +70,13 @@ const handleDelete=(id)=>{
       <tr>
         <th></th>
        
+        <th>Date</th>
         <th>Factory Name</th>
         <th>DAy</th>
-        <th>Date</th>
-        <th>Travel Cost</th> 
-        <th>night Bill</th>
-        <th> take</th>
-        <th> advance</th>
+ <th>Details of Worker</th>
+         
+        
+      
       </tr>
     </thead>
     <tbody>
@@ -84,7 +84,7 @@ const handleDelete=(id)=>{
 
       {
   AllWorks?.map((mywork, index) => {
-    const Bokaya = mywork?.price - mywork?.pay;
+    // const Bokaya = mywork?.price - mywork?.pay;
  
 
 
@@ -92,13 +92,11 @@ const handleDelete=(id)=>{
     return (
       <tr key={mywork?._id} className="hover:bg-base-200">
         <th>{index + 1}</th>
-        <td>{mywork?.name}</td>
-        <td>{mywork?.factory}</td>
         <td>{mywork?.date}</td>
-        <td>{mywork?.price}</td>
-        <td>{mywork?.pay}</td>
-        <td>{Bokaya}</td> {/* এইখানে ভেরিয়েবল ইউজ করা হলো */}
-        <td>{mywork?.overtime}</td>
+        <td>{mywork?.factory}</td>
+        <td>{mywork?.DAy}</td>
+        <td>{mywork.DetailsWorker}</td>
+        
         <td onClick={() => handleDelete(mywork?._id)} className="btn bg-red-300">x</td>
       </tr>
     );
