@@ -16,15 +16,15 @@ const Hazira_Worker = () => {
     return "loding";
   }
 
-  // const totalPay = AllWorks.reduce(
-  //   (acc, curr) => acc + (parseInt(curr.pay) || 0),
-  //   0
-  // );
+  const totalPay = AllWorks.reduce(
+    (acc, curr) => acc + (parseInt(curr.pay) || 0),
+    0
+  );
 
-  // const totalPabo = AllWorks.reduce(
-  //   (acc, curr) => acc + ((parseInt(curr.price) || 0) - (parseInt(curr.pay) || 0)),
-  //   0
-  // );
+  const totalPabo = AllWorks.reduce(
+    (acc, curr) => acc + ((parseInt(curr.price) || 0) - (parseInt(curr.pay) || 0)),
+    0
+  );
 
   const handleDelete = (id) => {
     deleteWork(id);
@@ -97,10 +97,10 @@ const Hazira_Worker = () => {
             })}
           </tbody>
         </table>
-        {/* <div className="text-center mt-6">
+        <div className="text-center mt-6">
  <h2 className="text-3xl py-4">Already Pay {totalPay}</h2>
- <h2 className="text-3xl ">you will get total {totalPabo}</h2>
- </div> */}
+ <h2 className="text-3xl ">  will get total {totalPabo}</h2>
+ </div>
       </div>
     </div>
     //  :  <></>

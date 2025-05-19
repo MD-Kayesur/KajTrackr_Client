@@ -52,11 +52,20 @@ const useMyWorks = () => {
     return res.data;
   };
   // announsment
+  // const addAnnounment = async (AnnounseInfo) => {
+  //   console.log(AnnounseInfo);
+  //   const res = await AxiousURL.post("/announsment", AnnounseInfo);
+  //   return res.data;
+  // };
+
+
+
   const addAnnounment = async (AnnounseInfo) => {
     console.log(AnnounseInfo);
     const res = await AxiousURL.post("/announsment", AnnounseInfo);
     return res.data;
   };
+
 
   const { data: AllAnnounment = [] } = useQuery({
     queryKey: ["AllAnnounment"],
