@@ -7,10 +7,11 @@ const useMyWorks = () => {
   const AxiousURL = useAxious();
   const { user } = useContext(AuthContext);
   const userEmail = user?.email;
+  
   const { data: AllWorks = [], refetch } = useQuery({
     queryKey: ["AllWorks"],
     queryFn: async () => {
-      const res = await AxiousURL.get(`/myworks/${userEmail}`);
+      const res = await AxiousURL.get(`/myworks/${userEmail}`, );
       return res.data;
     },
   });
@@ -20,14 +21,14 @@ const useMyWorks = () => {
   const { data: AllHistory = [] } = useQuery({
     queryKey: ["AllHistory"],
     queryFn: async () => {
-      const res = await AxiousURL.get(`/myworkshistory/${userEmail}`);
+      const res = await AxiousURL.get(`/myworkshistory/${userEmail} `);
       return res.data;
     },
   });
 
   const addWorks = async (addinfo) => {
-    //console.log(addinfo);
-    const res = await AxiousURL.post("/addworks", addinfo);
+    console.log(addinfo);
+    const res = await AxiousURL.post("/addworks", addinfo , );
     refetch();
     return res.data;
   };
@@ -105,11 +106,28 @@ const addusers = async (userInfo) => {
  
     queryKey: ["onlyuser" , userEmail],
     queryFn: async () => {
-      const res = await AxiousURL.get(`/useronly/${userEmail.toLowerCase()}`);
+      const res = await AxiousURL.get(`/useronly/${userEmail.toLowerCase()}`  ,{withCredentials:true} );
       return res.data;
     },
   });
   //console.log(AllHistory);
+
+
+
+  // jwy yoken
+
+  const jwtuser = async (user) => {
+    
+    console.log(user);
+    const res = await AxiousURL.post('/jwt', user);
+    console.log(res);
+    // return res.data;
+  };
+
+
+
+
+
   return {
     AllWorks,
     addWorks,
@@ -123,7 +141,8 @@ const addusers = async (userInfo) => {
     deleteAnnunsment,
     addusers,
     Allusers,
-    onlyuser
+    onlyuser,
+    jwtuser
   };
 };
 

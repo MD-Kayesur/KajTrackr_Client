@@ -6,7 +6,8 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import useMyWorks from "../Hooks/useMyWorks";
 
-function Signup() {const { Signup, updateProfil, GoogleLogIn } = useContext(AuthContext);
+function Signup() {
+  const { Signup, updateProfil, GoogleLogIn } = useContext(AuthContext);
 const Navigate = useNavigate();
 const { addusers } = useMyWorks();
 

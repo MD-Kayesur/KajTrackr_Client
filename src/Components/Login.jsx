@@ -13,6 +13,8 @@ import Swal from "sweetalert2";
 import Lottie from "react-lottie";
 import { FaGoogle } from "react-icons/fa6";
 import { AuthContext } from "../Providers/AuthProvider";
+import axios from "axios";
+import useMyWorks from "../Hooks/useMyWorks";
 // import Sociallogin from "../../components/Sociallogin";
 
 function Login() {
@@ -22,7 +24,7 @@ function Login() {
   const location = useLocation();
   const forms = location?.state?.form?.pathname || "/";
   const { signin,GoogleLogIn } = useContext(AuthContext);
-
+const {jwtuser}=useMyWorks()
   useEffect(() => {
     loadCaptchaEnginge(6);
   }, []);
@@ -43,13 +45,24 @@ function Login() {
     const password = form.password.value;
 
     // //console.log(email, password);
-    signin(email, password).then(() => {
+    signin(email, password)
+    .then((result ) => {
+       
+      const user = {email: result.user.email}
+      console.log(user);
+      jwtuser(user)
+
       Swal.fire({
         title: " success!",
         icon: "success",
         draggable: true,
       });
-      Navigate(forms, { replace: true });
+      // Navigate(forms, { replace: true });
+     
+      // const user = result.user.email
+     
+// axios.post( `http://localhost:5001/jwt`,user)
+// .then(data=> console.log(data))
     });
   };
 
@@ -69,7 +82,7 @@ function Login() {
 
   const handleGoogleLogin = () => {
     GoogleLogIn()
-    .then((res)=>{
+    .then(( )=>{
     //  //console.log( res.data) 
     })
   };

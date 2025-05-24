@@ -21,20 +21,21 @@ const Protaction = () => {
     const date = form.date.value;
     const price = form.price.value;
     const pay = form.pay.value;
+    const pis = form.pis.value;
 
     const newErrors = {};
     if (!name) newErrors.name = "নাম লিখুন";
     if (!factory) newErrors.factory = "ফ্যাক্টরির নাম দিন";
     if (!date) newErrors.date = "তারিখ লিখুন";
-    if (!price) newErrors.price = "মূল্য দিন";
-    if (!pay) newErrors.pay = "পেমেন্ট লিখুন";
+    // if (!price) newErrors.price = "মূল্য দিন";
+    // if (!pay) newErrors.pay = "পেমেন্ট লিখুন";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
 
-    const addinfo = { name, date, factory, price, pay, userEmaol };
+    const addinfo = { name, date, factory, price, pay, userEmaol,pis };
 
     addWorks(addinfo);
     addHistory(addinfo);
@@ -67,9 +68,15 @@ const Protaction = () => {
                 <input type="date" name="date" className="input" />
                 {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
 
-                <label className="fieldset-label">Price</label>
+                <label className="fieldset-label">per pis Price</label>
                 <input type="number" name="price" className="input" placeholder="$ Price" />
                 {errors.price && <p className="text-red-500 text-sm">{errors.price}</p>}
+
+                <label className="fieldset-label"> pis</label>
+                <input type="number" name="pis" className="input" placeholder="$ pis" />
+                {errors.price && <p className="text-red-500 text-sm">{errors.price}</p>}
+
+              
 
                 <label className="fieldset-label">Pay</label>
                 <input type="number" name="pay" className="input" placeholder="$ Already Pay" />

@@ -24,7 +24,7 @@ const Hajira = () => {
     const overtime = form.overtime.value;
     const DAy = form.DAy.value;
     const takemoney = form.takemoney.value;
-
+console.log(takemoney);
     const newErrors = {};
     if (!name) newErrors.name = "নাম দিন";
     // if (!factory) newErrors.factory = "ফ্যাক্টরির নাম দিন";
@@ -32,7 +32,7 @@ const Hajira = () => {
     // if (!price) newErrors.price = "মূল্য দিন";
     // if (!pay) newErrors.pay = "পেমেন্ট দিন";
     if (!DAy) newErrors.DAy = "পেমেন্ট দিন";
-    if (!takemoney) newErrors.takemoney = "পেমেন্ট দিন";
+    // if (!takemoney) newErrors.takemoney = "পেমেন্ট দিন";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -51,6 +51,7 @@ const Hajira = () => {
       takemoney
     };
 
+    console.log(addinfo);
     addWorks(addinfo);
     addHistory(addinfo);
     Swal.fire({
@@ -137,7 +138,7 @@ const Hajira = () => {
                 <div>
                   <label className="fieldset-label">Already Pay</label>
                   <input
-                    type="number"
+                    type="text"
                     name="pay"
                     className="input"
                     placeholder="$ Already Pay"

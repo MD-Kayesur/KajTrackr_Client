@@ -23,17 +23,28 @@ if (loding) {
  
  
 
-// const totalPay = AllWorks.reduce(
-//   (acc, curr) => acc + (parseInt(curr.pay) || 0),
-//   0
-// );
+const totalPay = AllWorks.reduce(
+  (acc, curr) => acc + (Number(curr.pay) || 0),
+  0
+);
  
-// const totalPabo = AllWorks.reduce(
-//   (acc, curr) => acc + ((parseInt(curr.price) || 0) - (parseInt(curr.pay) || 0)),
+
+const AllWorksWithTotal = AllWorks.map(work => ({
+  ...work,
+  totalMoney: Number(work.price) * Number(work.pis) || 0,
+}));
+
+const totalearn = AllWorksWithTotal.reduce(
+  (acc, curr) => acc + curr.totalMoney,
+  0
+);
+ 
+// const totalearn = AllWorks.reduce(
+//   (acc, curr) => acc + (Number(curr.totalMoney) || 0),
 //   0
 // );
 
- 
+ console.log(totalearn);
 
 
 
@@ -70,13 +81,15 @@ const handleDelete=(id)=>{
       <tr>
         <th></th>
        
+        <th>contactor Name</th>
         <th>Factory Name</th>
-        <th>DAy</th>
+        {/* <th>DAy</th> */}
         <th>Date</th>
-        <th>Travel Cost</th> 
-        <th>night Bill</th>
-        <th> take</th>
-        <th> advance</th>
+        <th>price</th> 
+        <th>pis</th>
+        <th> today earn</th>
+        <th> pay</th>
+        {/* <th> Bokaya</th> */}
       </tr>
     </thead>
     <tbody>
@@ -84,9 +97,10 @@ const handleDelete=(id)=>{
 
       {
   AllWorks?.map((mywork, index) => {
-    const Bokaya = mywork?.price - mywork?.pay;
+    const totalMoney = mywork?.price * mywork?.pis
+    console.log(totalMoney);
+    // const Bokaya = (Number(mywork?.totalMoney) || 0) - (Number(mywork?.pay) || 0);
  
-
 
  
     return (
@@ -96,9 +110,10 @@ const handleDelete=(id)=>{
         <td>{mywork?.factory}</td>
         <td>{mywork?.date}</td>
         <td>{mywork?.price}</td>
+        <td>{mywork?.pis}</td>
+        <td>{totalMoney}</td>
         <td>{mywork?.pay}</td>
-        <td>{Bokaya}</td> {/* এইখানে ভেরিয়েবল ইউজ করা হলো */}
-        <td>{mywork?.overtime}</td>
+        {/* <td>{Bokaya}</td>  */}
         <td onClick={() => handleDelete(mywork?._id)} className="btn bg-red-300">x</td>
       </tr>
     );
@@ -110,10 +125,10 @@ const handleDelete=(id)=>{
 
 
   </table>
- {/* <div className="text-center mt-6">
+ <div className="text-center mt-6">
  <h2 className="text-3xl py-4">Already Pay {totalPay}</h2>
- <h2 className="text-3xl ">you will get total {totalPabo}</h2>
- </div> */}
+ <h2 className="text-3xl ">total earn in this month {totalearn}</h2>
+ </div>
 </div>
         </div> 
         //  :  <></>
