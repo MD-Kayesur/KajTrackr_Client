@@ -39,10 +39,10 @@ const totalearn = AllWorksWithTotal.reduce(
   0
 );
  
-// const totalearn = AllWorks.reduce(
-//   (acc, curr) => acc + (Number(curr.totalMoney) || 0),
-//   0
-// );
+const pis = AllWorks.reduce(
+  (acc, curr) => acc + (Number(curr.pis) || 0),
+  0
+);
 
  console.log(totalearn);
 
@@ -87,7 +87,7 @@ const handleDelete=(id)=>{
         <th>Date</th>
         <th>price</th> 
         <th>pis</th>
-        <th> today earn</th>
+        <th>   get money</th>
         <th> pay</th>
         {/* <th> Bokaya</th> */}
       </tr>
@@ -126,8 +126,9 @@ const handleDelete=(id)=>{
 
   </table>
  <div className="text-center mt-6">
- <h2 className="text-3xl py-4">Already Pay {totalPay}</h2>
- <h2 className="text-3xl ">total earn in this month {totalearn}</h2>
+ <h2 className="text-3xl ">Total Protection : {pis} pis</h2>
+ <h2 className="text-3xl py-4">Already Pay :  {totalPay} taka </h2>
+ <h2 className="text-3xl ">total get money : {totalearn} taka</h2>
  </div>
 </div>
         </div> 
