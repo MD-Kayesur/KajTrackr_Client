@@ -70,7 +70,7 @@ const Protaction = () => {
 
                 <label className="fieldset-label">per pis Price</label>
                 <input type="number" name="price" className="input" placeholder="$ Price" />
-                {errors.price && <p className="text-red-500 text-sm">{errors.price}</p>}
+                {/* {errors.price && <p className="text-red-500 text-sm">{errors.price}</p>} */}
 
                 <label className="fieldset-label"> pis</label>
                 <input type="number" name="pis" className="input" placeholder="$ pis" />

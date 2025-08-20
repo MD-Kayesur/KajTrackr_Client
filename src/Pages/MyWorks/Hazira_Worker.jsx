@@ -25,6 +25,14 @@ const Hazira_Worker = () => {
     (acc, curr) => acc + ((parseInt(curr.price) || 0) - (parseInt(curr.pay) || 0)),
     0
   );
+  const overtime = AllWorks.reduce(
+    (acc, curr) => acc + ((parseInt(curr.overtime) || 0)),
+    0
+  );
+  const takemoney = AllWorks.reduce(
+    (acc, curr) => acc + ((parseInt(curr.takemoney) || 0)),
+    0
+  );
 
   const handleDelete = (id) => {
     deleteWork(id);
@@ -98,8 +106,14 @@ const Hazira_Worker = () => {
           </tbody>
         </table>
         <div className="text-center mt-6">
- <h2 className="text-3xl py-4">Already Pay {totalPay}</h2>
- <h2 className="text-3xl ">  will get total {totalPabo}</h2>
+ <h2 className="text-3xl ">Already Pay : {totalPay} taka</h2>
+ <h2 className="text-3xl py-4">  will get total : {totalPabo} taka</h2>
+ <hr />
+ <h2 className="text-3xl ">   total overtime : {overtime} hour  so total : {overtime*100} taka</h2>
+ <h2 className="text-3xl py-4">   alreade take money  : {takemoney} taka</h2>
+ {/* <h2 className="text-3xl py-4">    atlast after calculate i will get total  {(totalPabo+(overtime*100)) - (totalPay+takemoney) } taka</h2> */}
+
+ 
  </div>
       </div>
     </div>
